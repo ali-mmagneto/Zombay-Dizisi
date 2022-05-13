@@ -87,15 +87,15 @@ async def sezon1(client: Client, message: Message):
         sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
         yeni = message.from_user
 
-    await client.send_message(
-        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
-        reply_markup=sezon1btn,
-        chat_id=message.from_user.id,
-        protect_content=True,
-        parse_mode=ParseMode.HTML
-    ) 
-    await client.send_message(LOG_CHANNEL,
-        f"#yenilink\n Ad: `{yeni.first_name}\n Kullanıcı Adı: @{yeni.username} Kişisi 1. Sezon linkini aldı.")
+        await client.send_message(
+            text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+            reply_markup=sezon1btn,
+            chat_id=message.from_user.id,
+            protect_content=True,
+            parse_mode=ParseMode.HTML
+        ) 
+        await client.send_message(LOG_CHANNEL,
+            f"#yenilink\n Ad: `{yeni.first_name}\n Kullanıcı Adı: @{yeni.username} Kişisi 1. Sezon linkini aldı.")
 
 app.run()
 
