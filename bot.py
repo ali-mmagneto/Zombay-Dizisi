@@ -58,7 +58,8 @@ async def start(client: Client, message: Message):
              text="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
              reply_markup=reply_markup,
              chat_id=message.from_user.id,
-             protect_content=True
+             protect_content=True,
+             parse_mode="html"
     )
 
 @app.on_message(filters.command('help'))
@@ -73,7 +74,8 @@ async def help(client: Client, message: Message):
         text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
         reply_markup=reply_mrkp,
         chat_id=message.from_user.id,
-        protect_content=True
+        protect_content=True,
+        parse_mode="html"
     ) 
 
 app.run()
