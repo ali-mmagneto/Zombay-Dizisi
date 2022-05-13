@@ -1,8 +1,8 @@
 heroku3
-pyrogram==1.4.16
 tgcrypto
 python-dotenv
 pytz
 aiohttp
 requests
 telethon
+pyrogram
