@@ -53,8 +53,8 @@ async def start(client: Client, message: Message):
     if update_channel:
         try:
             link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
-            user = await bot.get_chat_member(update_channel, update.chat.id)
-            if user.status == "kicked":
+            user = await client.get_chat_member(update_channel, update.chat.id)
+            if user.status == ChatMemberStatus.Banned:
                await bot.delete_messages(
                  chat_id=update.chat.id,
                  message_ids=update.message_id,
