@@ -49,26 +49,26 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
-        buttons = [
-                 [
-                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
-                 ]
-                 ]
-        reply_markup = InlineKeyboardMarkup(buttons)
-        await client.send_message(
-                 chat_id=message.from_user.id,
-                 caption="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
-                 reply_markup=reply_markup,
-                 protect_content=True
-        )
+    buttons = [
+             [
+                 InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
+             ]
+             ]
+    reply_markup = InlineKeyboardMarkup(buttons)
+    await client.send_message(
+             chat_id=message.from_user.id,
+             text="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
+             reply_markup=reply_markup,
+             protect_content=True
+    )
 
 @app.on_message(filters.command('help'))
 async def help(client: Client, message: Message):
     butt = [
-                 [
-                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
-                 ]
-                 ]
+          [
+              InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
+          ]
+          ]
     reply_mrkp = InlineKeyboardMarkup(butt)
     await client.send_message(
         chat_id=message.from_user.id,
