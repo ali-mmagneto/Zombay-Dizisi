@@ -53,7 +53,7 @@ async def start(client: Client, message: Message):
     if update_channel:
         try:
             link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
-            user = await client.get_chat_member(AUTH_CHANNEL)
+            user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
             if user.status == ChatMemberStatus.Banned:
                await client.delete_messages(
                  chat_id=message.from_user.id,
@@ -96,7 +96,9 @@ async def help(client: Client, message: Message):
     await client.send_message(
         chat_id=message.from_user.id,
         text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
-        reply_markup=reply_mrkp
+        reply_markup=reply_mrkp,
+        parse_mode='html',
+        protect_content=True
     ) 
 
 app.run()
