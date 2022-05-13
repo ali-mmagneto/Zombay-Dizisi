@@ -77,13 +77,13 @@ async def start(client: Client, message: Message):
         return
 @Client.on_callback_query()
 async def button(bot, update):
-    İf cb_data == "help":
-        await update.message.edit_caption(
-            text="Kardeşim /sezon1, /sezon2 diye kullan komutları devamını tahmin etmek zor değil",
-            disable_web_page_preview=True
-        )
-    elif cb_data == "close":
-        await update.message.delete()
+  İf cb_data == "help":
+      await update.message.edit_caption(
+          text="Kardeşim /sezon1, /sezon2 diye kullan komutları devamını tahmin etmek zor değil",
+          disable_web_page_preview=True
+      )
+  elif cb_data == "close":
+      await update.message.delete()
 
    buttons = [
             [
