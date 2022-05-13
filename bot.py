@@ -91,7 +91,7 @@ async def sezon1(client: Client, message: Message):
             protect_content=True,
             parse_mode=ParseMode.HTML
         ) 
-     app.run()
+        app.run()
 
 
 
