@@ -50,7 +50,7 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 async def start(client: Client, message: Message):
     buttons = [
              [
-                 InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
+                 InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
              ]
              ]
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -65,7 +65,7 @@ async def start(client: Client, message: Message):
 async def help(client: Client, message: Message):
     butt = [
           [
-              InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
+              InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
           ]
           ]
     reply_mrkp = InlineKeyboardMarkup(butt)
