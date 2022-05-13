@@ -17,7 +17,6 @@ import logging, heroku3
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 from os import environ
 from pyrogram import filters, Client
-from utils import is_subscribed, temp
 from pyrogram.types import Message
 broadcast_ids = {}
 
