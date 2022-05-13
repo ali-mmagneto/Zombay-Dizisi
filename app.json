@@ -67,6 +67,10 @@
       "description": "11. Sezon kanalının idsi başına -100 koy",
       "value": ""
     }, 
+    "ORIGINS": {
+      "description": "11. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
     "AUTH_CHANNEL": {
       "description": "Kanal işte gir ne yaziyim",
       "value": ""
