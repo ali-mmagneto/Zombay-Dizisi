@@ -53,16 +53,16 @@ async def start(client: Client, message: Message):
     if update_channel:
         try:
             link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
-            user = await client.get_chat_member(update_channel, update.chat.id)
+            user = await client.get_chat_member(update_channel, message.from_user.id)
             if user.status == ChatMemberStatus.Banned:
-               await bot.delete_messages(
-                 chat_id=update.chat.id,
-                 message_ids=update.message_id,
+               await client.delete_messages(
+                 chat_id=message.from_user.id,
+                 message_ids=message.from_message_id,
                  revoke=True
                )
                return
         except UserNotParticipant:
-            await update.reply_text(
+            await client.reply_text(
                 text="**Zombi Dizisini İzlemek için Kanalıma katılman gerek!**",
                 reply_markup=InlineKeyboardMarkup([
                     [InlineKeyboardButton(text="Kanala Katil", url=link.invite_link)]
@@ -94,6 +94,7 @@ async def help(client: Client, message: Message):
                  ]
     reply_mrkp = InlineKeyboardMarkup(butt)
     await client.send_message(
+        chat_id=message.from_user.id,
         text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
         reply_markup=reply_mrkp
     ) 
