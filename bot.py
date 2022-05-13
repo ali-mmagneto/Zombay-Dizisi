@@ -88,7 +88,7 @@ async def start(client: Client, message: Message):
                  protect_content=True
         )
         except Exception as e:
-            Logger.warn(e)
+            Logger.info(e)
 
 @Client.on_message(filters.command('help'))
 async def help(client: Client, message: Message):
