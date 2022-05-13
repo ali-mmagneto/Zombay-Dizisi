@@ -28,6 +28,7 @@ import aiohttp
 import pytz
 from dotenv import load_dotenv
 from pyrogram import types
+from pyrogram.errors import UserNotParticipant
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
@@ -48,31 +49,26 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
-  if AUTH_CHANNEL and not await is_subscribed(client, message):
+  update_channel = AUTH_CHANNEL
+    if update_channel:
         try:
-            date = message.date + 120
-            invite_link = await client.create_chat_invite_link(int(AUTH_CHANNEL), expire_date=date, member_limit = 1)
-        except ChatAdminRequired:
-            logger.error("Bot'un AUTH_CHANNEL kanalında yönetici olduğundan emin olun")
-            return
-        btn = [
-            [
-                InlineKeyboardButton(
-                    "🤖 Kanala Katılın", url=invite_link.invite_link
-                )
-            ]
-        ]
-
-        if message.command[1] != "subscribe":
-            btn.append([InlineKeyboardButton(" 🔄 Tekrar deneyin", callback_data=f"checksub#{message.command[1]}")])
-        await client.send_message(
-            chat_id=message.from_user.id,
-            text="**Zombi Dizisi İzlemek için kanalıma katılman gerek!**",
-            reply_markup=InlineKeyboardMarkup(btn),
-            parse_mode="markdown",
-            protect_content=True
+            link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await bot.delete_messages(
+                 chat_id=update.chat.id,
+                 message_ids=update.message_id,
+                 revoke=True
+               )
+               return
+        except UserNotParticipant:
+            await update.reply_text(
+                text="**Zoöbi Dizisini İzlemek için Kanalıma katılman gerek!**",
+                reply_markup=InlineKeyboardMarkup([
+                    [InlineKeyboardButton(text="Kanala Katil", url=linki.invite_link")]
+                ])
             )
-        return
+            return
 
         buttons = [
                  [
