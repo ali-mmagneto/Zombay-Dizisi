@@ -309,7 +309,7 @@ async def sezon11(client: Client, message: Message):
     )
 
 @app.on_message(filters.command('origins'))
-async def sezon11(client: Client, message: Message):
+async def origins(client: Client, message: Message):
     origins = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
     originsbtn = InlineKeyboardMarkup([[InlineKeyboardButton('Origins', url=origins.invite_link)]])
     origins = message.from_user
