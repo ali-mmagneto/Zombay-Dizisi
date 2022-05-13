@@ -9,6 +9,7 @@ from pyrogram.handlers import MessageHandler
 import re
 import asyncio
 import random
+from pyrogram import Client
 from random import choice
 from typing import Callable, Coroutine, Dict, List, Union
 from pyrogram.errors import FloodWait, MessageNotModified
