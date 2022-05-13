@@ -190,9 +190,9 @@ async def sezon5(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon6'))
 async def sezon6(client: Client, message: Message):
-    sezon1 = await client.create_chat_invite_link(int(SEZON6), member_limit = 1)
+    sezon6 = await client.create_chat_invite_link(int(SEZON6), member_limit = 1)
     sezon6btn = InlineKeyboardMarkup([[InlineKeyboardButton('6. Sezon', url=sezon6.invite_link)]])
-    szn1yn = message.from_user
+    szn6yn = message.from_user
 
     await client.send_message(
         text="6. Sezonu izlemek için aşağıdaki butona tıkla!",
@@ -210,7 +210,7 @@ async def sezon6(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon7'))
 async def sezon7(client: Client, message: Message):
-    sezon1 = await client.create_chat_invite_link(int(SEZON7), member_limit = 1)
+    sezon7 = await client.create_chat_invite_link(int(SEZON7), member_limit = 1)
     sezon7btn = InlineKeyboardMarkup([[InlineKeyboardButton('7. Sezon', url=sezon7.invite_link)]])
     szn7yn = message.from_user
 
@@ -232,7 +232,7 @@ async def sezon7(client: Client, message: Message):
 async def sezon8(client: Client, message: Message):
     sezon8 = await client.create_chat_invite_link(int(SEZON8), member_limit = 1)
     sezon8btn = InlineKeyboardMarkup([[InlineKeyboardButton('8. Sezon', url=sezon8.invite_link)]])
-    szn1yn = message.from_user
+    szn8yn = message.from_user
 
     await client.send_message(
         text="8. Sezonu izlemek için aşağıdaki butona tıkla!",
@@ -251,8 +251,8 @@ async def sezon8(client: Client, message: Message):
 @app.on_message(filters.command('sezon9'))
 async def sezon9(client: Client, message: Message):
     sezon9 = await client.create_chat_invite_link(int(SEZON9), member_limit = 1)
-    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('9. Sezon', url=sezon1.invite_link)]])
-    szn1yn = message.from_user
+    sezon9btn = InlineKeyboardMarkup([[InlineKeyboardButton('9. Sezon', url=sezon1.invite_link)]])
+    szn9yn = message.from_user
 
     await client.send_message(
         text="9. Sezonu izlemek için aşağıdaki butona tıkla!",
@@ -291,7 +291,7 @@ async def sezon10(client: Client, message: Message):
 @app.on_message(filters.command('sezon11'))
 async def sezon11(client: Client, message: Message):
     sezon11 = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
-    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('11. Sezon', url=sezon11.invite_link)]])
+    sezon11btn = InlineKeyboardMarkup([[InlineKeyboardButton('11. Sezon', url=sezon11.invite_link)]])
     szn11yn = message.from_user
 
     await client.send_message(
@@ -303,7 +303,7 @@ async def sezon11(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 11. Sezon linkini aldı.",
+        text="#yenilink\n tg://openmessage?user_id={message.from_user.id} Kişisi 11. Sezon linkini aldı.",
         reply_markup=sezon11btn,
         parse_mode=ParseMode.HTML
     )
