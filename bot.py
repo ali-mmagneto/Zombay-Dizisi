@@ -53,7 +53,7 @@ SEZON8 = int(environ.get('SEZON8', "-1001157328481"))
 SEZON9 = int(environ.get('SEZON9', "-1001157046481"))
 SEZON10 = int(environ.get('SEZON10', "-1001159048481"))
 SEZON11 = int(environ.get('SEZON11', "-1001159848481")) 
-ORİGİNS = int(environ.get('ORİGİNS', "-1001159848481")) 
+ORIGINS = int(environ.get('ORIGINS', "-1001159848481")) 
 
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001157048481"))
 ADMIN: str = environ.get('ADMIN', None)
@@ -63,7 +63,6 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
     try:
-        date = message.date + 120
         forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, expire_date=date, member_limit=1)
     except FloodWait as e:
         await asyncio.sleep(e.x)
