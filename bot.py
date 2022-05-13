@@ -63,9 +63,9 @@ async def start(client: Client, message: Message):
                return
         except UserNotParticipant:
             await update.reply_text(
-                text="**Zoöbi Dizisini İzlemek için Kanalıma katılman gerek!**",
+                text="**Zombi Dizisini İzlemek için Kanalıma katılman gerek!**",
                 reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(text="Kanala Katil", url=linki.invite_link")]
+                    [InlineKeyboardButton(text="Kanala Katil", url=link.invite_link)]
                 ])
             )
             return
