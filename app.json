@@ -1,1 +1,43 @@
+{
+  "name": "Zombay-Dizisi",
+  "logo":"https://telegra.ph/file/ff56e221b0a50dc90926a.jpg",
+  "description": "Zombi Dizisi Getirir.",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "@botfather ile Alabilirsin.",
+      "value": ""
+    }, 
+    "API_HASH": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    },
+    "API_ID": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    },
+    "SUDO": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    }, 
+    "ADMIN": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    }, 
+    "SEZON1": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    }, 
+    "SEZON2": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    }, 
+    "AUTH_CHANNEL": {
+      "description": "my.telegram.org'dan al",
+      "value": ""
+    }
 
+  },
+  "buildpacks": [{
+    "url": "heroku/python"
+  }]
+} 
