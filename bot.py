@@ -4,6 +4,7 @@ import math
 import requests
 from pyrogram.handlers import MessageHandler
 import re
+from pyrogram.enums import ParseMode, ChatType, MessageMediaType
 import asyncio
 import random
 from pyrogram import Client
@@ -59,7 +60,7 @@ async def start(client: Client, message: Message):
              reply_markup=reply_markup,
              chat_id=message.from_user.id,
              protect_content=True,
-             parse_mode="html"
+             parse_mode=ParseMode.HTML
     )
 
 @app.on_message(filters.command('help'))
@@ -75,7 +76,7 @@ async def help(client: Client, message: Message):
         reply_markup=reply_mrkp,
         chat_id=message.from_user.id,
         protect_content=True,
-        parse_mode="html"
+        parse_mode=ParseMode.HTML
     ) 
 
 app.run()
