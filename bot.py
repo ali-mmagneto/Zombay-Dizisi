@@ -49,39 +49,16 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
-    update_channel = AUTH_CHANNEL
-    if update_channel:
-        try:
-            link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
-            user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
-            if user.status == ChatMemberStatus.Banned:
-               await client.delete_messages(
-                 chat_id=message.from_user.id,
-                 message_ids=message.from_message_id,
-                 revoke=True
-               )
-               return
-        except UserNotParticipant:
-            await client.reply_text(
-                text="**Zombi Dizisini İzlemek için Kanalıma katılman gerek!**",
-                reply_markup=InlineKeyboardMarkup([
-                    [InlineKeyboardButton(text="Kanala Katil", url=link.invite_link)]
-                ])
-            )
-            return
-
         buttons = [
                  [
                      InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
                  ]
                  ]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await client.send_photo(
+        await client.send_message(
                  chat_id=message.from_user.id,
-                 photo=random.choice(PICS),
                  caption="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
                  reply_markup=reply_markup,
-                 parse_mode='html',
                  protect_content=True
         )
 
@@ -97,7 +74,6 @@ async def help(client: Client, message: Message):
         chat_id=message.from_user.id,
         text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
         reply_markup=reply_mrkp,
-        parse_mode='html',
         protect_content=True
     ) 
 
