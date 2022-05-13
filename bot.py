@@ -69,7 +69,7 @@ async def start(client: Client, message: Message):
         return
     try:
         user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
-        if user.status == ChatMemberStatus.Banned:
+        if user.status == ChatMemberStatus.BANNED:
             await client.delete_messages(
                 chat_id=message.chat.id,
                 message_ids=message.message_id,
