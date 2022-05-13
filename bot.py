@@ -49,7 +49,7 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
-  update_channel = AUTH_CHANNEL
+    update_channel = AUTH_CHANNEL
     if update_channel:
         try:
             link = await client.create_chat_invite_link(int(AUTH_CHANNEL), member_limit = 1)
