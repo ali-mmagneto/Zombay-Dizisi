@@ -105,7 +105,7 @@ async def sezon1(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n ad: `{yeni.first_name}` \n Kullanıcı adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.",
+        text="#yenilink\n ad: `{szn1yn.first_name}` \n Kullanıcı adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.",
         reply_markup=sezon1btn,
         parse_mode=ParseMode.HTML
     )
