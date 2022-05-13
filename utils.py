@@ -1,7 +1,7 @@
 import logging
 from pyrogram import Client
 from pyrogram.errors import InputUserDeactivated, UserNotParticipant, FloodWait, UserIsBlocked, PeerIdInvalid
-from info import AUTH_CHANNEL, LOG_CHANNEL
+from bot import AUTH_CHANNEL, LOG_CHANNEL
 import asyncio
 from pyrogram.types import Message
 from pyrogram.enums import ChatMemberStatus
