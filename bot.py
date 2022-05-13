@@ -76,33 +76,23 @@ async def start(client: Client, message: Message):
             )
         return
 
-@Client.on_callback_query()
-async def button(bot, update):
-  İf cb_data == "help":
-      await update.message.edit_caption(
-          text="Kardeşim /sezon1, /sezon2 diye kullan komutları devamını tahmin etmek zor değil",
-          disable_web_page_preview=True
-      )
-  elif cb_data == "close":
-      await update.message.delete()
-
-   buttons = [
-            [
-                InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-            ],
-            [
-                InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN"),
-            ]
-            ]
-   reply_markup = InlineKeyboardMarkup(buttons)
-   await client.send_photo(
-            chat_id=message.from_user.id,
-            photo=random.choice(PICS),
-            caption="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan aşağıdaki butondan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
-            reply_markup=reply_markup,
-            parse_mode='html',
-            protect_content=True
-   )
+        buttons = [
+                 [
+                     InlineKeyboardButton('ℹ️ Help', callback_data='help'),
+                 ],
+                 [
+                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN"),
+                 ]
+                 ]
+        reply_markup = InlineKeyboardMarkup(buttons)
+        await client.send_photo(
+                 chat_id=message.from_user.id,
+                 photo=random.choice(PICS),
+                 caption="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
+                 reply_markup=reply_markup,
+                 parse_mode='html',
+                 protect_content=True
+        )
 
 app.run()
 
