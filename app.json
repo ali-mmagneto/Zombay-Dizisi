@@ -16,23 +16,27 @@
       "value": ""
     },
     "SUDO": {
-      "description": "my.telegram.org'dan al",
+      "description": "Bot Sahibinin Telegram İdsi",
       "value": ""
     }, 
     "ADMIN": {
-      "description": "my.telegram.org'dan al",
+      "description": "Bot sahibinin kullanıcı adı @ olmadan",
       "value": ""
     }, 
     "SEZON1": {
-      "description": "my.telegram.org'dan al",
+      "description": "1. Sezon kanalının idsi başına -100 koy",
       "value": ""
     }, 
     "SEZON2": {
-      "description": "my.telegram.org'dan al",
+      "description": "2. Sezon kanalının idsi başına -100 koy",
       "value": ""
     }, 
     "AUTH_CHANNEL": {
-      "description": "my.telegram.org'dan al",
+      "description": "Kanal işte gir ne yaziyim",
+      "value": ""
+    }, 
+    "LOG_CHANNEL": {
+      "description": "Log Kanalının İdsi başına -100 koy",
       "value": ""
     }
 
