@@ -50,7 +50,7 @@ AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', "-1001157048481"))
 SEZON1 = inr(environ.get('SEZON1', "-1001157048481"))
 SEZON2 = inr(environ.get('SEZON2', "-1001157048481"))
 
-@Client.on_message(filters.command('start'):
+@Client.on_message(filters.command('start')
 async def start(client: Client, message: Message):
   if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
