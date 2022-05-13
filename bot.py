@@ -17,6 +17,7 @@ import logging, heroku3
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 from os import environ
 from pyrogram import filters, Client
+from pyrogram.enums import ChatMemberStatus 
 from pyrogram.types import Message
 broadcast_ids = {}
 
@@ -61,6 +62,37 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
+    try:
+        date = message.date + 120
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, expire_date=date, member_limit=1)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.Banned:
+            await client.delete_messages(
+                chat_id=message.chat.id,
+                message_ids=message.message_id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="Zombi Dizisi izlemek için kanalıma katıl!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(Kanalıma Katılman Lazım, url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML,
+            reply_to_message_id=message.message_id,
+        )
+        return
     buttons = [
              [
                  InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
