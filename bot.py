@@ -55,9 +55,9 @@ async def start(client: Client, message: Message):
              ]
     reply_markup = InlineKeyboardMarkup(buttons)
     await client.send_message(
-             chat_id=message.from_user.id,
              text="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\n **BİR ÖLÜR BİN DİRİLİRİZ!**",
              reply_markup=reply_markup,
+             chat_id=message.from_user.id,
              protect_content=True
     )
 
@@ -70,9 +70,9 @@ async def help(client: Client, message: Message):
           ]
     reply_mrkp = InlineKeyboardMarkup(butt)
     await client.send_message(
-        chat_id=message.from_user.id,
         text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
         reply_markup=reply_mrkp,
+        chat_id=message.from_user.id,
         protect_content=True
     ) 
 
