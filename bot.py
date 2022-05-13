@@ -2,8 +2,6 @@ import json
 import math
 
 import requests
-from messageFunc import sendMessage
-import requests, time
 from pyrogram.handlers import MessageHandler
 import re
 import asyncio
@@ -15,7 +13,6 @@ from pyrogram.types import Chat, Message, User
 import threading
 from pyrogram.types.messages_and_media.message import Message
 import logging, heroku3
-from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 from os import environ
 from pyrogram import filters, Client
@@ -31,7 +28,6 @@ import aiohttp
 import pytz
 from dotenv import load_dotenv
 from pyrogram import types
-from unidecode import unidecode
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler('log.txt'), logging.StreamHandler()],
