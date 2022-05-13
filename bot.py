@@ -308,6 +308,26 @@ async def sezon11(client: Client, message: Message):
         parse_mode=ParseMode.HTML
     )
 
+@app.on_message(filters.command('origins'))
+async def sezon11(client: Client, message: Message):
+    origins = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
+    originsbtn = InlineKeyboardMarkup([[InlineKeyboardButton('Origins', url=origins.invite_link)]])
+    origins = message.from_user
+
+    await client.send_message(
+        text="origins izlemek için aşağıdaki butona tıkla!",
+        reply_markup=originsbtn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id={message.from_user.id} Kişisi Origins linkini aldı.",
+        reply_markup=originsbtn,
+        parse_mode=ParseMode.HTML
+    )
+
 app.run()
 
 
