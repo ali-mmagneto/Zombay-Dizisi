@@ -15,6 +15,7 @@ import threading
 from pyrogram.types.messages_and_media.message import Message
 import logging, heroku3
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
+from utils import is_subscribed, temp
 from os import environ
 from pyrogram import filters, Client
 from pyrogram.types import Message
@@ -104,7 +105,7 @@ async def sezon1(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        text="#yenilink\n ad: `{yeni.first_name}` \n Kullanıcı adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.",
         reply_markup=sezon1btn,
         parse_mode=ParseMode.HTML
     )
