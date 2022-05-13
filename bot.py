@@ -63,7 +63,7 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
     try:
-        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, expire_date=date, member_limit=1)
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, member_limit = 1)
     except FloodWait as e:
         await asyncio.sleep(e.x)
         return
