@@ -85,7 +85,7 @@ async def start(client: Client, message: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(Kanalıma Katılman Lazım, url=forcsub.invite_link)
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
                     ]
                 ]
             ),
