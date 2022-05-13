@@ -82,22 +82,21 @@ async def help(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon1'))
 async def sezon1(client: Client, message: Message):
-    try:
-        sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
-        sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
-        szn1yn = message.from_user
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
 
-        await client.send_message(
-            text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
-            reply_markup=sezon1btn,
-            chat_id=message.from_user.id,
-            protect_content=True,
-            parse_mode=ParseMode.HTML
-        ) 
-        await client.send_message(LOG_CHANNEL,
-            f"#yenilink\n Ad: `{szn1yn.first_name}\n Kullanıcı Adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.")
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(LOG_CHANNEL,
+        f"#yenilink\n Ad: `{szn1yn.first_name}\n Kullanıcı Adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.")
 
-     app.run()
+app.run()
 
 
 
