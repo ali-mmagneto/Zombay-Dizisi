@@ -26,9 +26,45 @@
     "SEZON1": {
       "description": "1. Sezon kanalının idsi başına -100 koy",
       "value": ""
-    }, 
+    },
     "SEZON2": {
       "description": "2. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON3": {
+      "description": "3. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON4": {
+      "description": "4. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    },
+    "SEZON5": {
+      "description": "5. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON6": {
+      "description": "6. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    },
+    "SEZON7": {
+      "description": "7. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON8": {
+      "description": "8. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON9": {
+      "description": "9. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON10": {
+      "description": "10. Sezon kanalının idsi başına -100 koy",
+      "value": ""
+    }, 
+    "SEZON11": {
+      "description": "11. Sezon kanalının idsi başına -100 koy",
       "value": ""
     }, 
     "AUTH_CHANNEL": {
