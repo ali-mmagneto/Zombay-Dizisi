@@ -45,7 +45,7 @@ ADMIN: str = environ.get('ADMIN', None)
 
 app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, parse_mode="markdown")
 
-@Client.on_message(filters.command('start'))
+@app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
   if AUTH_CHANNEL and not await is_subscribed(client, message):
         try:
@@ -88,7 +88,7 @@ async def start(client: Client, message: Message):
                  protect_content=True
         )
 
-@Client.on_message(filters.command('help'))
+@app.on_message(filters.command('help'))
 async def help(client: Client, message: Message):
     butt = [
                  [
