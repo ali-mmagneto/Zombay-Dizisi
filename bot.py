@@ -3,15 +3,13 @@ import math
 
 import requests
 from messageFunc import sendMessage
-import os, youtube_dl, requests, time
-from youtube_search import YoutubeSearch
+import requests, time
 from pyrogram.handlers import MessageHandler
 import re
 import asyncio
 import random
 from pyrogram import Client
 from random import choice
-from typing import Callable, Coroutine, Dict, List, Union
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
 import threading
@@ -20,7 +18,6 @@ import logging, heroku3
 from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
 from os import environ
-from typing import Dict, List
 from pyrogram import filters, Client
 from pyrogram.types import Message
 broadcast_ids = {}
@@ -41,7 +38,6 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
-
 BOT_TOKEN: str = environ.get('BOT_TOKEN', None)
 API_ID: int = int(environ.get('API_ID', None))
 API_HASH: str = environ.get('API_HASH', None)
@@ -49,6 +45,8 @@ SUDO = list(set(int(x) for x in os.environ.get("SUDO", "1276627253").split()))
 AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', "-1001157048481"))
 SEZON1 = inr(environ.get('SEZON1', "-1001157048481"))
 SEZON2 = inr(environ.get('SEZON2', "-1001157048481"))
+
+app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, parse_mode="markdown")
 
 @Client.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
@@ -103,7 +101,9 @@ async def button(bot, update):
             reply_markup=reply_markup,
             parse_mode='html',
             protect_content=True
-   ) 
+   )
+
+app.run()
 
 
 
