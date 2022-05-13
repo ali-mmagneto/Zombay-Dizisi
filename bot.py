@@ -95,10 +95,209 @@ async def sezon1(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n Ad: `{szn1yn.first_name}\n Kullanıcı Adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.",
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
         reply_markup=sezon1btn,
         parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon2'))
+async def sezon2(client: Client, message: Message):
+    sezon2 = await client.create_chat_invite_link(int(SEZON2), member_limit = 1)
+    sezon2btn = InlineKeyboardMarkup([[InlineKeyboardButton('2. Sezon', url=sezon2.invite_link)]])
+
+    await client.send_message(
+        text="2. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon2btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
     ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 2. Sezon linkini aldı.",
+        reply_markup=sezon2btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon3'))
+async def sezon1(client: Client, message: Message):
+    sezon3 = await client.create_chat_invite_link(int(SEZON3), member_limit = 1)
+    sezon3btn = InlineKeyboardMarkup([[InlineKeyboardButton('3. Sezon', url=sezon3.invite_link)]])
+    szn3yn = message.from_user
+
+    await client.send_message(
+        text="3. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 3. Sezon linkini aldı.",
+        reply_markup=sezon3btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon4'))
+async def sezon1(client: Client, message: Message):
+    sezon4 = await client.create_chat_invite_link(int(SEZON4), member_limit = 1)
+    sezon4btn = InlineKeyboardMarkup([[InlineKeyboardButton('4. Sezon', url=sezon4.invite_link)]])
+    szn4yn = message.from_user
+
+    await client.send_message(
+        text="4. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon4btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 4. Sezon linkini aldı.",
+        reply_markup=sezon4btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon5'))
+async def sezon1(client: Client, message: Message):
+    sezon5 = await client.create_chat_invite_link(int(SEZON5), member_limit = 1)
+    sezon5btn = InlineKeyboardMarkup([[InlineKeyboardButton('5. Sezon', url=sezon5.invite_link)]])
+    szn5yn = message.from_user
+
+    await client.send_message(
+        text="5. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon5btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
+
+@app.on_message(filters.command('sezon1'))
+async def sezon1(client: Client, message: Message):
+    sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
+    sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+    szn1yn = message.from_user
+
+    await client.send_message(
+        text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
+        reply_markup=sezon1btn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 1. Sezon linkini aldı.",
+        reply_markup=sezon1btn,
+        parse_mode=ParseMode.HTML
+    )
 
 app.run()
 
