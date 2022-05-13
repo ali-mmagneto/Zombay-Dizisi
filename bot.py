@@ -84,6 +84,7 @@ async def sezon1(client: Client, message: Message):
     try:
         sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
         sezon1btn = InlineKeyboardMarkup([[InlineKeyboardButton('1. Sezon', url=sezon1.invite_link)]])
+        
         await client.send_message(
             text="1. Sezonu izlemek için aşağıdaki butona tıkla!",
             reply_markup=sezon1btn,
@@ -91,7 +92,8 @@ async def sezon1(client: Client, message: Message):
             protect_content=True,
             parse_mode=ParseMode.HTML
         ) 
-        app.run()
+
+app.run()
 
 
 
