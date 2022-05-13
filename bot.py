@@ -78,10 +78,7 @@ async def start(client: Client, message: Message):
 
         buttons = [
                  [
-                     InlineKeyboardButton('ℹ️ Help', callback_data='help'),
-                 ],
-                 [
-                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN"),
+                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
                  ]
                  ]
         reply_markup = InlineKeyboardMarkup(buttons)
@@ -93,6 +90,19 @@ async def start(client: Client, message: Message):
                  parse_mode='html',
                  protect_content=True
         )
+
+@Client.on_message(filters.command('help'))
+async def help(client: Client, message: Message):
+    butt = [
+                 [
+                     InlineKeyboardButton('Bot Destek', url=f"https://t.me/ADMIN")
+                 ]
+                 ]
+    reply_mrkp = InlineKeyboardMarkup(butt)
+    await message.reply_text(
+        text="eğer bu botu bulduysan ne işe yaradığını da biliyorsun /sezon1, /sezon2 diye devam et anlarsın zor değil.",
+        reply_markup=reply_mrkp
+    ) 
 
 app.run()
 
