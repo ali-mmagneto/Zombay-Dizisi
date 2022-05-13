@@ -15,7 +15,6 @@ import threading
 from pyrogram.types.messages_and_media.message import Message
 import logging, heroku3
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, InlineQueryResultArticle, InputTextMessageContent
-from utils import is_subscribed, temp
 from os import environ
 from pyrogram import filters, Client
 from pyrogram.types import Message
@@ -52,7 +51,9 @@ SEZON7 = int(environ.get('SEZON7', "-1001157848481"))
 SEZON8 = int(environ.get('SEZON8', "-1001157328481"))
 SEZON9 = int(environ.get('SEZON9', "-1001157046481"))
 SEZON10 = int(environ.get('SEZON10', "-1001159048481"))
-SEZON11 = int(environ.get('SEZON11', "-1001159848481"))
+SEZON11 = int(environ.get('SEZON11', "-1001159848481")) 
+ORİGİNS = int(environ.get('ORİGİNS', "-1001159848481")) 
+
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001157048481"))
 ADMIN: str = environ.get('ADMIN', None)
 
@@ -316,7 +317,7 @@ async def origins(client: Client, message: Message):
     origins = message.from_user
 
     await client.send_message(
-        text="origins izlemek için aşağıdaki butona tıkla!",
+        text="Origins izlemek için aşağıdaki butona tıkla!",
         reply_markup=originsbtn,
         chat_id=message.from_user.id,
         protect_content=True,
