@@ -43,6 +43,7 @@ SUDO = list(set(int(x) for x in environ.get("SUDO", "1276627253").split()))
 AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', "-1001157048481"))
 SEZON1 = int(environ.get('SEZON1', "-1001157048481"))
 SEZON2 = int(environ.get('SEZON2', "-1001157048481"))
+LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001157048481"))
 ADMIN: str = environ.get('ADMIN', None)
 
 app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, parse_mode="markdown")
