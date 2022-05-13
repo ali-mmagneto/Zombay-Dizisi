@@ -52,18 +52,6 @@ async def is_subscribed(bot:Client, query):
     return False
 
 
-def get_size(size):
-    """Get size in readable format"""
-
-units = ["b", "k", "m", "g", "t", "p", "e"]
-    size = float(size)
-    i = 0
-    while size >= 1024.0 and i < len(units):
-        i += 1
-        size /= 1024.0
-    return "%.0f%s" % (size, units[i])
-
-
 def split_list(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]
