@@ -97,7 +97,7 @@ async def sezon1(client: Client, message: Message):
         await client.send_message(LOG_CHANNEL,
             f"#yenilink\n Ad: `{yeni.first_name}\n Kullanıcı Adı: @{yeni.username} Kişisi 1. Sezon linkini aldı.")
 
-app.run()
+    app.run()
 
 
 
