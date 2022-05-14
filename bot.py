@@ -53,7 +53,9 @@ SEZON8 = int(environ.get('SEZON8', "-1001157328481"))
 SEZON9 = int(environ.get('SEZON9', "-1001157046481"))
 SEZON10 = int(environ.get('SEZON10', "-1001159048481"))
 SEZON11 = int(environ.get('SEZON11', "-1001159848481")) 
-ORIGINS = int(environ.get('ORIGINS', "-1001159848481")) 
+ORIGINS = int(environ.get('ORIGINS', "-1001159848481"))
+HEROKU_APP_NAME = environ.get('HEROKU_APP_NAME', None)
+HEROKU_API_KEY = environ.get('HEROKU_API_KEY', None)
 
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001157048481"))
 ADMIN: str = environ.get('ADMIN', None)
@@ -104,6 +106,31 @@ async def start(client: Client, message: Message):
              protect_content=True,
              parse_mode=ParseMode.HTML
     )
+
+@app.on_message(filters.command('log'))
+async def sendLogs(client, message):
+    with open('log.txt', 'rb') as f:
+        try:
+            await client.send_document(document=f,
+                                       file_name=f.name, reply_to_message_id=message.message_id,
+                                       chat_id=message.chat.id, caption=f.name)
+        except Exception as e:
+            await message.reply_text(str(e))
+
+@app.on_message(filters.command("restart"))
+async def restart(_, m: Message):
+    restart_message = await m.reply_text(text="`Ölmek üzereyim...\nbana hayat verdiğin için teşekkürler😢`")
+    try:
+        if heroku_api_key is not None:
+            heroku_conn = heroku3.from_key(heroku_api_key)
+            server = heroku_conn.app(heroku_app_name)
+            server.restart() 
+            await restart_message.edit('`Senin ellerinde can verdim kurt bakışlım.`')
+            time.sleep(2)
+        else:
+            await restart_message.edit("`Heroku Api Key ve uygulama adını ekleyin.`")
+    except Exception as e:
+        await restart_message.edit(f"**İntihar bile edemedim:** `{e}`")
 
 @app.on_message(filters.command('help'))
 async def help(client: Client, message: Message):
