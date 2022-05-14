@@ -121,9 +121,9 @@ async def sendLogs(client, message):
 async def restart(_, m: Message):
     restart_message = await m.reply_text(text="`Ölmek üzereyim...\nbana hayat verdiğin için teşekkürler😢`")
     try:
-        if heroku_api_key is not None:
-            heroku_conn = heroku3.from_key(heroku_api_key)
-            server = heroku_conn.app(heroku_app_name)
+        if HEROKU_API_KEY is not None:
+            heroku_conn = heroku3.from_key(HEROKU_API_KEY)
+            server = heroku_conn.app(HEROKU_APP_NAME)
             server.restart() 
             await restart_message.edit('`Senin ellerinde can verdim kurt bakışlım.`')
             time.sleep(2)
