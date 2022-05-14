@@ -572,7 +572,7 @@ async def sezon9(client: Client, message: Message):
         )
         return
     sezon9 = await client.create_chat_invite_link(int(SEZON9), member_limit = 1)
-    sezon9btn = InlineKeyboardMarkup([[InlineKeyboardButton('9. Sezon', url=sezon1.invite_link)]])
+    sezon9btn = InlineKeyboardMarkup([[InlineKeyboardButton('9. Sezon', url=sezon9.invite_link)]])
     szn9yn = message.from_user
 
     await client.send_message(
