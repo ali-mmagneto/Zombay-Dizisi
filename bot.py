@@ -718,7 +718,7 @@ async def origins(client: Client, message: Message):
             protect_content=True
         )
         return
-    origins = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
+    origins = await client.create_chat_invite_link(int(ORIGINS), member_limit = 1)
     originsbtn = InlineKeyboardMarkup([[InlineKeyboardButton('Origins', url=origins.invite_link)]])
     origins = message.from_user
 
