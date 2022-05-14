@@ -87,7 +87,8 @@ async def start(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
         )
         return
     buttons = [
@@ -175,7 +176,8 @@ async def sezon1(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML,
+            protect_content=True
         )
         return
     sezon1 = await client.create_chat_invite_link(int(SEZON1), member_limit = 1)
@@ -223,7 +225,8 @@ async def sezon2(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
         )
         return
     sezon2 = await client.create_chat_invite_link(int(SEZON2), member_limit = 1)
@@ -270,7 +273,8 @@ async def sezon3(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML,
+            protect_content=True
         )
         return
     sezon3 = await client.create_chat_invite_link(int(SEZON3), member_limit = 1)
@@ -318,7 +322,8 @@ async def sezon4(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML,
+            protect_content=True
         )
         return
     sezon4 = await client.create_chat_invite_link(int(SEZON4), member_limit = 1)
@@ -366,7 +371,8 @@ async def sezon5(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML,
+            protect_content=True
         )
         return
     sezon5 = await client.create_chat_invite_link(int(SEZON5), member_limit = 1)
@@ -389,6 +395,35 @@ async def sezon5(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon6'))
 async def sezon6(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon6 = await client.create_chat_invite_link(int(SEZON6), member_limit = 1)
     sezon6btn = InlineKeyboardMarkup([[InlineKeyboardButton('6. Sezon', url=sezon6.invite_link)]])
     szn6yn = message.from_user
@@ -409,6 +444,35 @@ async def sezon6(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon7'))
 async def sezon7(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon7 = await client.create_chat_invite_link(int(SEZON7), member_limit = 1)
     sezon7btn = InlineKeyboardMarkup([[InlineKeyboardButton('7. Sezon', url=sezon7.invite_link)]])
     szn7yn = message.from_user
@@ -429,6 +493,35 @@ async def sezon7(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon8'))
 async def sezon8(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon8 = await client.create_chat_invite_link(int(SEZON8), member_limit = 1)
     sezon8btn = InlineKeyboardMarkup([[InlineKeyboardButton('8. Sezon', url=sezon8.invite_link)]])
     szn8yn = message.from_user
@@ -449,6 +542,35 @@ async def sezon8(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon9'))
 async def sezon9(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon9 = await client.create_chat_invite_link(int(SEZON9), member_limit = 1)
     sezon9btn = InlineKeyboardMarkup([[InlineKeyboardButton('9. Sezon', url=sezon1.invite_link)]])
     szn9yn = message.from_user
@@ -469,6 +591,35 @@ async def sezon9(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon10'))
 async def sezon10(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon10 = await client.create_chat_invite_link(int(SEZON10), member_limit = 1)
     sezon10btn = InlineKeyboardMarkup([[InlineKeyboardButton('10. Sezon', url=sezon10.invite_link)]])
     szn10yn = message.from_user
@@ -489,6 +640,35 @@ async def sezon10(client: Client, message: Message):
 
 @app.on_message(filters.command('sezon11'))
 async def sezon11(client: Client, message: Message):
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            reply_markup=InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
+                    ]
+                ]
+            ),
+            parse_mode=ParseMode.HTML, 
+            protect_content=True
+        )
+        return
     sezon11 = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
     sezon11btn = InlineKeyboardMarkup([[InlineKeyboardButton('11. Sezon', url=sezon11.invite_link)]])
     szn11yn = message.from_user
@@ -526,7 +706,7 @@ async def origins(client: Client, message: Message):
     except UserNotParticipant:
         await client.send_message(
             chat_id=message.from_user.id,
-            text=" Kardeş Bu botu sadece benim kanalımın üyeleri kullanabilir eğer kanalımın üyesi olmak istiyorsan aşağıdan istek gönder uugun görürsem olursun!",
+            text="Merhaba bu botu sadece gruba üye olanlar kullanabilir eğer gruba üye olmak istiyorsan aşağıdaki butondan istek gönder eğer fake isim koyarsan yada profil fotoğrafını yoksa seni gruba kabul edemem!",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -534,7 +714,8 @@ async def origins(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML
+            parse_mode=ParseMode.HTML,
+            protect_content=True
         )
         return
     origins = await client.create_chat_invite_link(int(SEZON11), member_limit = 1)
