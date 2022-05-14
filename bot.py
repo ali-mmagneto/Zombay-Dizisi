@@ -63,7 +63,7 @@ app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN,
 @app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
     try:
-        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, member_limit = 1)
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
     except FloodWait as e:
         await asyncio.sleep(e.x)
         return
@@ -71,8 +71,7 @@ async def start(client: Client, message: Message):
         user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
         if user.status == ChatMemberStatus.BANNED:
             await client.delete_messages(
-                chat_id=message.chat.id,
-                message_ids=message.message_id,
+                chat_id=message.from_user.id,
                 revoke=True,
                 parse_mode=ParseMode.HTML
             )
@@ -88,8 +87,7 @@ async def start(client: Client, message: Message):
                     ]
                 ]
             ),
-            parse_mode=ParseMode.HTML,
-            reply_to_message_id=message.message_id,
+            parse_mode=ParseMode.HTML
         )
         return
     buttons = [
