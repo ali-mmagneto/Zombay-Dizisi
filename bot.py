@@ -137,7 +137,7 @@ async def sezon1(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n ad: `{szn1yn.first_name}` \n Kullanıcı adı: @{szn1yn.username} Kişisi 1. Sezon linkini aldı.",
+        text="#yenilink\n {message.from_user.firstname} Kişisi 1. Sezon linkini aldı.",
         reply_markup=sezon1btn,
         parse_mode=ParseMode.HTML
     )
@@ -156,7 +156,7 @@ async def sezon2(client: Client, message: Message):
     ) 
     await client.send_message(
         chat_id=LOG_CHANNEL,
-        text="#yenilink\n tg://openmessage?user_id=message.from_user.id Kişisi 2. Sezon linkini aldı.",
+        text="#yenilink\n message.from_user.username Kişisi 2. Sezon linkini aldı.",
         reply_markup=sezon2btn,
         parse_mode=ParseMode.HTML
     )
