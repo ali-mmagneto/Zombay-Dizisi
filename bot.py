@@ -56,7 +56,7 @@ SEZON11 = int(environ.get('SEZON11', "-1001159848481"))
 ORIGINS = int(environ.get('ORIGINS', "-1001159848481"))
 HEROKU_APP_NAME = environ.get('HEROKU_APP_NAME', None)
 HEROKU_API_KEY = environ.get('HEROKU_API_KEY', None)
-
+YOU_JOINED = is_enabled(environ.get("YOU_JOINED", True))
 LOG_CHANNEL = int(environ.get('LOG_CHANNEL', "-1001157048481"))
 ADMIN: str = environ.get('ADMIN', None)
 
@@ -768,7 +768,14 @@ async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
     if not cmu.new_chat_member: return
     if cmu.new_chat_member.user.is_bot: return
     yeni = cmu.new_chat_member.user
-    if YOU_JOINED:
-        await client.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
+    try:
+        if YOU_JOINED:
+            await client.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
+    except Exception as e:
+        await client.send_message(
+            chat_id=1276627253,
+            text=(str(e)),
+            parse_mode=ParseMode.HTML
+        ) 
 
 app.run()
