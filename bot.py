@@ -763,4 +763,12 @@ async def origins(client: Client, message: Message):
         parse_mode=ParseMode.HTML
     )
 
+@app.on_chat_member_updated(filters.chat(AUTH_CHANNEL))
+async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
+    if not cmu.new_chat_member: return
+    if cmu.new_chat_member.user.is_bot: return
+    yeni = cmu.new_chat_member.user
+    if YOU_JOINED:
+        await client.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
+
 app.run()
