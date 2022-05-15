@@ -773,7 +773,7 @@ async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
             await client.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
     except Exception as e:
         await client.send_message(
-            chat_id=1276627253,
+            chat_id=SUDO,
             text=(str(e)),
             parse_mode=ParseMode.HTML
         ) 
