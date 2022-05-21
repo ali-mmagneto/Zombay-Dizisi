@@ -7,6 +7,7 @@ import re
 from pyrogram.enums import ParseMode, ChatType, MessageMediaType
 import asyncio
 import random
+from pyrogram.types import ChatMemberUpdated
 from pyrogram import Client
 from random import choice
 from pyrogram.errors import FloodWait, MessageNotModified
