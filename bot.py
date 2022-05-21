@@ -54,7 +54,7 @@ ADMIN: str = environ.get('ADMIN', None)
 
 app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, parse_mode="markdown")
 
-@app.on_message(filters.command('start'))
+@app.on_message(filters.command('start') & filters.user(SUDO))
 async def start(client: Client, message: Message):
     try:
         forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
@@ -109,7 +109,7 @@ async def sendLogs(client, message):
         except Exception as e:
             await message.reply_text(str(e))
 
-@app.on_message(filters.command("restart"))
+@app.on_message(filters.command("restart") & filters.user(SUDO))
 async def restart(_, m: Message):
     restart_message = await m.reply_text(text="`Ölmek üzereyim...\nbana hayat verdiğin için teşekkürler😢`")
     try:
