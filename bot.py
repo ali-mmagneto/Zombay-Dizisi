@@ -223,7 +223,11 @@ async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
     if cmu.new_chat_member.user.is_bot: return
     yeni = cmu.new_chat_member.user
     if YOU_JOINED:
-        await bot.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
+        await client.send_message(
+            chat_id=yeni.id,
+            text="Kanala katıldın. Şimdi beni kullanabilirsin.", 
+            parse_mode=ParseMode.HTML
+        ) 
         await asyncio.sleep(1)
         await client.send_message(
             chat_id=SUDO,
