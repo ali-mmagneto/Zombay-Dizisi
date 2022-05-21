@@ -178,6 +178,51 @@ async def help(client: Client, message: Message):
             protect_content=True
         )
         return
+
+@app.on_message(filters.command('kanal'))
+async def sezon1(client: Client, message: Message):
+    reply_markup = [
+          [
+              InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
+          ]
+          ]
+    try:
+        forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
+    except FloodWait as e:
+        await asyncio.sleep(e.x)
+        return
+    try:
+        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        if user.status == ChatMemberStatus.BANNED:
+            await client.delete_messages(
+                chat_id=message.from_user.id,
+                revoke=True,
+                parse_mode=ParseMode.HTML
+            )
+            return
+    except UserNotParticipant:
+        await client.send_message(
+            chat_id=message.from_user.id,
+            text="Parayı Veren Düdüğü Çalar eğer diziyi izlemek istiyorsan aşağıdaki buton aracılığıyla sahibimle iletişime geç. (Ücret: 1 Türk Lirası)", 
+            reply_markup=reply_markup,
+            parse_mode=ParseMode.HTML
+        ) 
+    kanal= await client.create_chat_invite_link(int(BOLUMKANALI), member_limit = 1)
+    kanalbtn = InlineKeyboardMarkup([[InlineKeyboardButton('Bölümler', url=kanal.invite_link)]])
+
+    await client.send_message(
+        text="Diziyi izlemek için aşağıdaki butona tıkla!",
+        reply_markup=kanalbtn,
+        chat_id=message.from_user.id,
+        protect_content=True,
+        parse_mode=ParseMode.HTML
+    ) 
+    await client.send_message(
+        chat_id=LOG_CHANNEL,
+        text="#yenilink\n {message.from_user.firstname} Kişisi 1. Sezon linkini aldı.",
+        reply_markup=kanalbtn,
+        parse_mode=ParseMode.HTML
+    )
     
 @app.on_chat_member_updated(filters.chat(AUTH_CHANNEL))
 async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
