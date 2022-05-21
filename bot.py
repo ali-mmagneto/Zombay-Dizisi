@@ -56,7 +56,7 @@ ADMIN: str = environ.get('ADMIN', None)
 
 app = Client("zombi_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN, parse_mode="markdown")
 
-@app.on_message(filters.command('start') & filters.user(SUDO))
+@app.on_message(filters.command('start'))
 async def start(client: Client, message: Message):
     try:
         forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
