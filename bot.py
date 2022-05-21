@@ -46,6 +46,7 @@ API_HASH: str = environ.get('API_HASH', None)
 SUDO = list(set(int(x) for x in environ.get("SUDO", "1276627253").split()))
 AUTH_CHANNEL = int(environ.get('AUTH_CHANNEL', "-1001157048481"))
 BOLUMKANALI = int(environ.get('BOLUMKANALI', "-1001159848481"))
+BOLUMONAYLAMA = int(environ.get('BOLUMONAYLAMA', "-1001159848481"))
 HEROKU_APP_NAME = environ.get('HEROKU_APP_NAME', None)
 HEROKU_API_KEY = environ.get('HEROKU_API_KEY', None)
 YOU_JOINED = is_enabled(environ.get("YOU_JOINED", True))
@@ -92,7 +93,7 @@ async def start(client: Client, message: Message):
              ]
     reply_markup = InlineKeyboardMarkup(buttons)
     await client.send_message(
-             text="Selam bu botu çalıştırdıysan bazı şeyleri biliyor olmalısın eğer bilmiyorsan /help komutundan yardım iste.\n\nBİR ÖLÜR BİN DİRİLİRİZ!\nBotu Yazan: @mmagneto",
+             text="Merhaba teliften dolayı artık bölüm kanalını ücretli yaptık bilgi almak için /help komutunu kullan!.\n\nBİR ÖLÜR BİN DİRİLİRİZ!\nBotu Yazan: @mmagneto",
              reply_markup=reply_markup,
              chat_id=message.from_user.id,
              protect_content=True,
