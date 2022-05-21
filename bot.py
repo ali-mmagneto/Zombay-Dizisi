@@ -192,7 +192,7 @@ async def sezon1(client: Client, message: Message):
         await asyncio.sleep(e.x)
         return
     try:
-        user = await client.get_chat_member(AUTH_CHANNEL, message.from_user.id)
+        user = await client.get_chat_member(BOLUMONAYLAMA, message.from_user.id)
         if user.status == ChatMemberStatus.BANNED:
             await client.delete_messages(
                 chat_id=message.from_user.id,
@@ -207,6 +207,7 @@ async def sezon1(client: Client, message: Message):
             reply_markup=reply_markup,
             parse_mode=ParseMode.HTML
         ) 
+        return
     kanal= await client.create_chat_invite_link(int(BOLUMKANALI), member_limit = 1)
     kanalbtn = InlineKeyboardMarkup([[InlineKeyboardButton('Bölümler', url=kanal.invite_link)]])
 
