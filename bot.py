@@ -173,11 +173,6 @@ async def help(client: Client, message: Message):
 
 @app.on_message(filters.command('kanal'))
 async def sezon1(client: Client, message: Message):
-    reply_markup = [
-          [
-              InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
-          ]
-          ]
     try:
         forcsub = await client.create_chat_invite_link(AUTH_CHANNEL, creates_join_request=True)
     except FloodWait as e:
@@ -193,6 +188,12 @@ async def sezon1(client: Client, message: Message):
             )
             return
     except UserNotParticipant:
+    destek = [
+          [
+              InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
+          ]
+          ]
+    reply_markup = InlineKeyboardMarkup(destek)
         await client.send_message(
             chat_id=message.from_user.id,
             text="Parayı Veren Düdüğü Çalar eğer diziyi izlemek istiyorsan aşağıdaki buton aracılığıyla sahibimle iletişime geç. (Ücret: 1 Türk Lirası)", 
