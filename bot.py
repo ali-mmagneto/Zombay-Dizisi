@@ -167,17 +167,8 @@ async def help(client: Client, message: Message):
         chat_id=message.from_user.id,
         protect_content=True,
         parse_mode=ParseMode.HTML
-    ) 
-
-
-                        InlineKeyboardButton("Kanalım", url=forcsub.invite_link)
-                    ]
-                ]
-            ),
-            parse_mode=ParseMode.HTML,
-            protect_content=True
-        )
-        return
+    )
+    return
 
 @app.on_message(filters.command('kanal'))
 async def sezon1(client: Client, message: Message):
@@ -227,9 +218,12 @@ async def sezon1(client: Client, message: Message):
     
 @app.on_chat_member_updated(filters.chat(AUTH_CHANNEL))
 async def user_accepted(bot:Client, cmu: ChatMemberUpdated):
-    if not cmu.new_
-            await client.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
-    except Exception as e:
+    if not cmu.new_chat_member: return
+    if cmu.new_chat_member.user.is_bot: return
+    yeni = cmu.new_chat_member.user
+    if YOU_JOINED:
+        await bot.send_message(yeni.id, "Kanala katıldın. Şimdi beni kullanabilirsin.")
+        await asyncio.sleep(1)
         await client.send_message(
             chat_id=SUDO,
             text=(str(e)),
