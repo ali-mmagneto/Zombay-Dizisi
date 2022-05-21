@@ -188,12 +188,12 @@ async def sezon1(client: Client, message: Message):
             )
             return
     except UserNotParticipant:
-    destek = [
-          [
-              InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
-          ]
-          ]
-    reply_markup = InlineKeyboardMarkup(destek)
+        destek = [
+              [
+                  InlineKeyboardButton('Bot Destek', url=f"https://t.me/{ADMIN}")
+              ]
+              ]
+        reply_markup = InlineKeyboardMarkup(destek)
         await client.send_message(
             chat_id=message.from_user.id,
             text="Parayı Veren Düdüğü Çalar eğer diziyi izlemek istiyorsan aşağıdaki buton aracılığıyla sahibimle iletişime geç. (Ücret: 1 Türk Lirası)", 
